@@ -17,6 +17,6 @@ from django.contrib import admin
 from django.urls import include, path
 
 urlpatterns = [
-    path('smart/', include('smart.urls')),
+    path('smart/', include('smart.urls', namespace="smart")),
     path('admin/', admin.site.urls),
 ]

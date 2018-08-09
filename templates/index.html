@@ -1,16 +1,26 @@
 {% load static %}
+
+<a href="{% url 'smart:mic' %}">Mic</a>
+<a href="{% url 'smart:device' %}">Device</a>
+<a href="{% url 'smart:motion' %}">Motion</a>
+<a href="{% url 'smart:lights' %}">Lights</a>
+<br>
+The probability that there is currently at least somebody in your home is
+NAN.
+<br>
+
+
 Today
 <br>
-<img src="{% static "device_presence.png" %}" alt="My image"/>
-Last Week
+
 <br>
 <img src="{% static "lamp_stats_65538.png" %}" alt="My image"/>
 <br>
-Last Month
+
 <br>
 <img src="{% static "lamp_stats_65539.png" %}" alt="My image"/>
 <br>
-Last Year
+
 <br>
 <img src="{% static "lamp_stats_65541.png" %}" alt="My image"/>
 <br>
@@ -20,5 +30,3 @@ Last Year
 <br>
 <img src="{% static "lamp_stats_65546.png" %}" alt="My image"/>
 <br>
-<br>
-
