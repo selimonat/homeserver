@@ -1,32 +1,25 @@
 {% load static %}
+<a href="{% url 'smart:index' %}">Home</a>
+<br>
+<a href="{% url 'smart:interface' 'device' %}">Device Presence</a>
+<a href="{% url 'smart:interface' 'mic' %}">Mic</a>
+<a href="{% url 'smart:interface' 'light' %}">Lights</a>
+<a href="{% url 'smart:interface' 'motion' %}">Motion</a>
 
-<a href="{% url 'smart:mic' %}">Mic</a>
-<a href="{% url 'smart:device' %}">Device</a>
-<a href="{% url 'smart:motion' %}">Motion</a>
-<a href="{% url 'smart:lights' %}">Lights</a>
 <br>
 The probability that there is currently at least somebody in your home is
 NAN.
 <br>
-
-
-Today
+Current (as of XXX) readings of the information sources are as follows:
 <br>
-
+The following lights has been found:
+XXXX
 <br>
-<img src="{% static "lamp_stats_65538.png" %}" alt="My image"/>
+The microphone level is at XXX, compared to
 <br>
-
+Motion sensor found activity XXX minutes ago.
 <br>
-<img src="{% static "lamp_stats_65539.png" %}" alt="My image"/>
+Device presence indicated that XXX oout of XXX devices are currently active.
 <br>
-
-<br>
-<img src="{% static "lamp_stats_65541.png" %}" alt="My image"/>
-<br>
-<img src="{% static "lamp_stats_65542.png" %}" alt="My image"/>
-<br>
-<img src="{% static "lamp_stats_65545.png" %}" alt="My image"/>
-<br>
-<img src="{% static "lamp_stats_65546.png" %}" alt="My image"/>
-<br>
+According to these sources of information, the probability that there is at least one
+person at home is XXX.

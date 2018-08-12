@@ -7,3 +7,6 @@ from django.http import HttpResponse
 #    return HttpResponse("Hello, world. You're at the polls index.")
 def index(request):
     return render(request,'index.html')
+
+def interface(request,source):
+    return render(request,'source.html',{'interface':source,'versions':["today","week","month","all"]})
