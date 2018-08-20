@@ -35,8 +35,9 @@ selim laptop: {{ device.selim_laptop }}<br>
 sonja laptop: {{ device.sonja_laptop }}<br>
 <br>
 <br>
-This is the latest visual from your home:
-<img src="{{STATIC_URL}}0.JPG"  %} alt="My image" width="640"/>
+This is the latest visual from your home:<br>
+<img src="{{STATIC_URL}}{{file.home_visual}}"  %} alt="My image" width="480"/>
+<img src="{{STATIC_URL}}{{file.motion_energy}}"  %} alt="My image" width="480"/>
 <br>
 <br>
 According to these sources of information, the probability that there is at least one
