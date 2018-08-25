@@ -12,8 +12,21 @@ from bokeh.embed import components
 #    return HttpResponse("Hello, world. You're at the polls index.")
 def index(request):
     h       = p.Home()
-    states  = h.CurrentState()
+    df      = h.CurrentState_as_df(last_row=10)
+    #last log entries
+    states  = p.tuplekey_to_nested(df.to_dict())
+    #add time info
     states.update({"time" : t.strftime("%H:%M",t.gmtime())})
+    #add image path
+    states.update({"file" : {"home_visual"   : "0.JPG",
+                             "motion_energy" : "motion_energy.JPG"}})
+    #get the imagematrix to visualize
+    plt = figure(title="test")
+    plt.rect(df)
+    script, div = components(plt)     
+    
+    states.update({"script" : script,"div" : div})
+    print(states)   
     return render(request,'index.html',states)
 
 def interface(request,source):
@@ -23,20 +36,7 @@ def interface(request,source):
     script,div = h.get_plot(source)
     return render(request,'source.html',
             {'script' : script , 'div' : div} )
-
 def test(request):
-    x= [1,3,5,7,9,11,13]
-    y= [1,2,3,4,5,6,7]
-    title = 'y = f(x)'
-
-    plot = figure(title= title , 
-        x_axis_label= 'X-Axis', 
-        y_axis_label= 'Y-Axis')
-
-    plot.line(x, y, legend= 'f(x)', line_width = 2)
-    #Store components 
-    script, div = components(plot)
-
-    #Feed them to the Django template.
-    return render_to_response( 'test.html',
-            {'script' : script , 'div' : div} )
+    d = {tuple(("bla",)):12,"bla2":13}
+    print(d)
+    return render(request,'test.html',d)

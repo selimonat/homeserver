@@ -1,3 +1,12 @@
+{<html lang="en">
+  <head>
+    <title>Bokeh Scatter Plots</title>
+
+<link href="http://cdn.pydata.org/bokeh/release/bokeh-0.12.3.min.css" rel="stylesheet" type="text/css">
+<link href="http://cdn.pydata.org/bokeh/release/bokeh-widgets-0.12.3.min.css" rel="stylesheet" type="text/css">
+	</head>
+ <body>
+     
 {% load static %}
 {% get_static_prefix as STATIC_URL %}
 <a href="{% url 'smart:index' %}">Home</a>
@@ -11,28 +20,28 @@ Current (as of {{ time }}) readings of the information sources are as follows:
 <br>
 The following lights has been found:<br>
 {% for mykey,myvalue in light.items %}
-    {{ mykey }} : {{ myvalue }} <br>
+    {{ mykey }} : {{ myvalue.state }} <br>
 {% endfor %}
 
 <br>
 The microphone level is <br>
 {% for mykey,myvalue in mic.items %}
-    {{ mykey }} : {{ myvalue }} <br>
+    {{ mykey }} : {{ myvalue.state }} <br>
 {% endfor %}
 <br>
-Motion sensor was triggered {{ light.65545 }} times during the last minute.
+Motion sensor was triggered {{ light.65545.state}} times during the last minute.
 <br>
 <br>
-Visual motion is {{ motion.motion }}.
+Visual motion is {{ motion.motion.state }}.
 <br>
 <br>
 The state of devices is as follows: 
 <br>
 <br>
-selim phone:  {{ device.selim_phone }}<br>
-sonja phone:  {{ device.sonja_phone }}<br>
-selim laptop: {{ device.selim_laptop }}<br>
-sonja laptop: {{ device.sonja_laptop }}<br>
+selim phone:  {{ device_presence.selim_phone.state  }}<br>
+sonja phone:  {{ device_presence.sonja_phone.state  }}<br>
+selim laptop: {{ device_presence.selim_laptop.state }}<br>
+sonja laptop: {{ device_presence.sonja_laptop.state}}<br>
 <br>
 <br>
 This is the latest visual from your home:<br>
@@ -42,4 +51,7 @@ This is the latest visual from your home:<br>
 <br>
 According to these sources of information, the probability that there is at least one
 person at home is XXX.
-
+{{ div    | safe }}
+ </body>
+{{ script | safe }} 
+</html>
