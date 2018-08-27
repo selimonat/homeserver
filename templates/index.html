@@ -1,3 +1,4 @@
+{% load custom %}
 {<html lang="en">
   <head>
     <title>Bokeh Scatter Plots</title>
@@ -22,28 +23,28 @@ It is  {% now "SHORT_DATETIME_FORMAT" %}.
 <br>
 The following lights has been found:<br>
 {% for mykey,myvalue in light.items %}
-    {{ mykey }} : {{ myvalue.state }} <br>
+    {{ mykey }} : {{ myvalue.state|value_at_max }} <br>
 {% endfor %}
 
 <br>
 The microphone level is <br>
 {% for mykey,myvalue in mic.items %}
-    {{ mykey }} : {{ myvalue.state }} <br>
+    {{ mykey }} : {{ myvalue.state|value_at_max }} <br>
 {% endfor %}
 <br>
-Motion sensor was triggered {{ light.65545.state}} times during the last minute.
+Motion sensor was triggered {{ light.65545.state|value_at_max }} times during the last minute.
 <br>
 <br>
-Visual motion is {{ motion.motion.state }}.
+Visual motion is {{ motion.motion.state|value_at_max  }}.
 <br>
 <br>
 The state of devices is as follows: 
 <br>
 <br>
-selim phone:  {{ device_presence.selim_phone.state  }}<br>
-sonja phone:  {{ device_presence.sonja_phone.state  }}<br>
-selim laptop: {{ device_presence.selim_laptop.state }}<br>
-sonja laptop: {{ device_presence.sonja_laptop.state}}<br>
+selim phone:  {{ device_presence.selim_phone.state|value_at_max   }}<br>
+sonja phone:  {{ device_presence.sonja_phone.state|value_at_max   }}<br>
+selim laptop: {{ device_presence.selim_laptop.state|value_at_max  }}<br>
+sonja laptop: {{ device_presence.sonja_laptop.state|value_at_max }}<br>
 <br>
 <br>
 This is the latest visual from your home:<br>
