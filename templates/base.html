@@ -1,0 +1,45 @@
+{% load static %}
+{% get_static_prefix as STATIC_URL %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link href="http://cdn.pydata.org/bokeh/release/bokeh-0.12.3.min.css" rel="stylesheet" type="text/css">
+	<link href="http://cdn.pydata.org/bokeh/release/bokeh-widgets-0.12.3.min.css" rel="stylesheet" type="text/css">
+	<title>
+		Poor Man's Smart Home
+	</title>
+</head>
+<body>	
+	{% block  navbar  %}		
+	{% endblock  %}
+		
+	{% block info %}
+	{% endblock %}
+	
+	{% block  ligth  %}
+	{% endblock  %}
+
+	{% block  mic  %}
+	{% endblock  %}
+
+	{% block  motion_detector %}
+	{% endblock  %}
+	
+	{% block  visual_motion %}
+	{% endblock  %}
+
+	{% block  device_presence  %}
+	{% endblock  %}
+
+	{% block  visual %}
+	{% endblock  %}
+
+	{% block  estimation %}
+	{% endblock  %}
+
+	{{ div    | safe }}
+
+</body>
+
+{{ script | safe }} 
+</html>
