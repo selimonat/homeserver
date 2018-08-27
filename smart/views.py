@@ -26,7 +26,6 @@ def index(request):
     script, div = components(plt)     
     
     states.update({"script" : script,"div" : div})
-    print(states)   
     return render(request,'index.html',states)
 
 def interface(request,source):
