@@ -16,7 +16,9 @@
 <a href="{% url 'smart:interface' 'light' %}">Lights</a>
 <a href="{% url 'smart:interface' 'motion' %}">Motion</a>
 <br>
-Current (as of {{ time }}) readings of the information sources are as follows:
+It is  {% now "SHORT_DATETIME_FORMAT" %}. 
+
+<br> Current readings of the information sources are as follows:
 <br>
 The following lights has been found:<br>
 {% for mykey,myvalue in light.items %}
