@@ -23,58 +23,96 @@
 
 {% block light %}
 	<div id=light>
+        <table>
+            <tr>
+                <td>
 		The following lights has been found:<br>
 		{% for mykey,myvalue in light.items %}
 		    {{ mykey }} : {{ myvalue.state|value_at_max }} <br>
 		{% endfor %}
-		
+		        </td>
+                <td>
     	{{ div.light_65538_state | safe }}
     	{{ div.light_65539_state | safe }}
     	{{ div.light_65541_state | safe }}
     	{{ div.light_65545_state | safe }}
     	{{ div.light_65546_state | safe }}
     	{{ div.light_65553_state | safe }}
-	</div>
+	            </td>
+            </tr>
+        </table>
+</div>
 {% endblock %}
 
 
 {% block mic %}	
 	<div id=mic>
+        <table>
+            <tr>
+                <td>
 		The microphone level is <br>
 		{% for mykey,myvalue in mic.items %}
 		    {{ mykey }} : {{ myvalue.state|value_at_max }} <br>
 		{% endfor %}
-
+                </td>
+                <td>
         {{ div.mic_power_state | safe }}
+                </td>
+            </tr>
+        </table>
 	</div>
 {% endblock %}
 
 {% block motion_detector %}
 	<div id=motion_detector>
-		Motion sensor was triggered {{ light.65545.state|value_at_max }} times during the last minute.
+        <table>
+            <tr>
+                <td>
+	            	Motion sensor was triggered {{ light.65545.state|value_at_max }} times during the last minute.
+                </td>
+                <td>
+                    {{ div.light_65545_state | safe }}
+                </td>
+            </tr>
+        </table>
 	</div>
-    {{ div.light_65545_state | safe }}
 {% endblock %}
 
 {% block visual_motion %}
 	<div id=visual_motion>
-		Visual motion is {{ motion.motion.state|value_at_max  }}.
+        <table>
+            <tr>
+                <td>
+            		Visual motion is {{ motion.motion.state|value_at_max  }}.
+                </td>
+                <td>
+                    {{ div.motion_motion_state | safe }}
+                </td>
+            </tr>
+        </table>
 	</div>
-    {{ div.motion_motion_state | safe }}
 {% endblock %}
 
 {% block device_presence %}
-	<div id=device_presence>	
-		The state of devices is as follows:<br>
-		selim phone:  {{ device_presence.selim_phone.state|value_at_max   }}<br>
-		sonja phone:  {{ device_presence.sonja_phone.state|value_at_max   }}<br>
-		selim laptop: {{ device_presence.selim_laptop.state|value_at_max  }}<br>
-		sonja laptop: {{ device_presence.sonja_laptop.state|value_at_max }}<br>
+	<div id=device_presence>
+        <table>
+            <tr>
+                <td>
+            		The state of devices is as follows:<br>
+            		selim phone:  {{ device_presence.selim_phone.state|value_at_max   }}<br>
+            		sonja phone:  {{ device_presence.sonja_phone.state|value_at_max   }}<br>
+            		selim laptop: {{ device_presence.selim_laptop.state|value_at_max  }}<br>
+            		sonja laptop: {{ device_presence.sonja_laptop.state|value_at_max }}<br>
+                </td>
+                <td>
+                    {{ div.device_presence_selim_laptop_state | safe }}
+                    {{ div.device_presence_sonja_laptop_state | safe }}
+                    {{ div.device_presence_selim_phone_state | safe }}
+                    {{ div.device_presence_sonja_phone_state | safe }}
+                </td>
+            </tr>
+        </table>
 	</div>
-    {{ div.device_presence_selim_laptop_state | safe }}
-    {{ div.device_presence_sonja_laptop_state | safe }}
-    {{ div.device_presence_selim_phone_state | safe }}
-    {{ div.device_presence_sonja_phone_state | safe }}
 {% endblock %}
 
 {% block visual %}

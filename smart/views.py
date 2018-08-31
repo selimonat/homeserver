@@ -14,7 +14,7 @@ from bokeh.models import LinearColorMapper
     #    return HttpResponse("Hello, world. You're at the polls index.")
 def index(request):
     h       = p.Home()
-    df      = h.CurrentState_as_df(last_row=10)
+    df      = h.CurrentState_as_df(last_row=120)
     #last log entries
     states  = p.tuplekey_to_nested(df.to_dict())
     #add time info
