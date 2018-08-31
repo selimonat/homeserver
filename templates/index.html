@@ -27,6 +27,13 @@
 		{% for mykey,myvalue in light.items %}
 		    {{ mykey }} : {{ myvalue.state|value_at_max }} <br>
 		{% endfor %}
+		
+    	{{ div.light_65538_state | safe }}
+    	{{ div.light_65539_state | safe }}
+    	{{ div.light_65541_state | safe }}
+    	{{ div.light_65545_state | safe }}
+    	{{ div.light_65546_state | safe }}
+    	{{ div.light_65553_state | safe }}
 	</div>
 {% endblock %}
 
@@ -37,6 +44,8 @@
 		{% for mykey,myvalue in mic.items %}
 		    {{ mykey }} : {{ myvalue.state|value_at_max }} <br>
 		{% endfor %}
+
+        {{ div.mic_power_state | safe }}
 	</div>
 {% endblock %}
 
@@ -44,12 +53,14 @@
 	<div id=motion_detector>
 		Motion sensor was triggered {{ light.65545.state|value_at_max }} times during the last minute.
 	</div>
+    {{ div.light_65545_state | safe }}
 {% endblock %}
 
 {% block visual_motion %}
 	<div id=visual_motion>
 		Visual motion is {{ motion.motion.state|value_at_max  }}.
 	</div>
+    {{ div.motion_motion_state | safe }}
 {% endblock %}
 
 {% block device_presence %}
@@ -60,6 +71,10 @@
 		selim laptop: {{ device_presence.selim_laptop.state|value_at_max  }}<br>
 		sonja laptop: {{ device_presence.sonja_laptop.state|value_at_max }}<br>
 	</div>
+    {{ div.device_presence_selim_laptop_state | safe }}
+    {{ div.device_presence_sonja_laptop_state | safe }}
+    {{ div.device_presence_selim_phone_state | safe }}
+    {{ div.device_presence_sonja_phone_state | safe }}
 {% endblock %}
 
 {% block visual %}
@@ -79,4 +94,6 @@
 	</div>
 {% endblock %}
 
-
+{% block script %}
+    {{ script | safe }} 
+{% endblock %}

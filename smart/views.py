@@ -23,7 +23,7 @@ def index(request):
     states.update({"file" : {"home_visual"   : "0.JPG",
                        "motion_energy" : "motion_energy.JPG"}})
     
-    script, div = pp.df_to_bar()
+    script, div = pp.df_to_bar(df)
 
     states.update({"script" : script,"div" : div})
 
