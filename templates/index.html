@@ -23,7 +23,12 @@
 
 {% block light %}
 	<div id=light>
-        <table>
+ 	<table style="width: 100%">
+	    <colgroup>
+	       <col span="1" style="width: 20%;">
+	       <col span="1" style="width: 80%;">
+	    </colgroup>
+       
             <tr>
                 <td>
 		The following lights has been found:<br>
@@ -47,7 +52,11 @@
 
 {% block mic %}	
 	<div id=mic>
-        <table>
+        <table style="width: 100%">
+	    <colgroup>
+	       <col span="1" style="width: 20%;">
+	       <col span="1" style="width: 80%;">
+	    </colgroup>
             <tr>
                 <td>
 		The microphone level is <br>
@@ -56,7 +65,11 @@
 		{% endfor %}
                 </td>
                 <td>
-        {{ div.mic_power_state | safe }}
+        {{ div.mic_freq_0_state | safe }}
+        {{ div.mic_freq_2_state | safe }}
+        {{ div.mic_freq_4_state | safe }}
+        {{ div.mic_freq_8_state | safe }}
+        {{ div.mic_freq_14_state | safe }}
                 </td>
             </tr>
         </table>
@@ -65,7 +78,11 @@
 
 {% block motion_detector %}
 	<div id=motion_detector>
-        <table>
+        <table style="width: 100%">
+	    <colgroup>
+	       <col span="1" style="width: 20%;">
+	       <col span="1" style="width: 80%;">
+	    </colgroup>
             <tr>
                 <td>
 	            	Motion sensor was triggered {{ light.65545.state|value_at_max }} times during the last minute.
@@ -80,7 +97,11 @@
 
 {% block visual_motion %}
 	<div id=visual_motion>
-        <table>
+        <table style="width: 100%">
+	    <colgroup>
+	       <col span="1" style="width: 20%;">
+	       <col span="1" style="width: 80%;">
+	    </colgroup>
             <tr>
                 <td>
             		Visual motion is {{ motion.motion.state|value_at_max  }}.
@@ -95,7 +116,11 @@
 
 {% block device_presence %}
 	<div id=device_presence>
-        <table>
+        <table style="width: 100%">
+	    <colgroup>
+	       <col span="1" style="width: 20%;">
+	       <col span="1" style="width: 80%;">
+	    </colgroup>
             <tr>
                 <td>
             		The state of devices is as follows:<br>
